@@ -9,6 +9,6 @@ class BlogPost(models.Model):
 
     link = models.URLField(max_length=128, db_index=True, unique=True, blank=True)
 
-    image = models.ImageField(upload_to=)
+    # image = models.ImageField(upload_to=)
     def __str__(self):
         return self.title
