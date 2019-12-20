@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Socials, BlogPost, Member
 
-# Register your models here.
+admin.site.register(Socials)
+admin.site.register(BlogPost)
+admin.site.register(Member)
