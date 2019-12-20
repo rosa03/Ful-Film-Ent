@@ -21,6 +21,10 @@ class BlogPost(models.Model):
 
     # video = 
 
+    class Meta:
+        get_latest_by = 'order_date'
+        get_latest_by = ['-priority', 'order_date']
+            
     def __str__(self):
         return self.title
 
@@ -40,3 +44,17 @@ class Member(models.Model):
         return ', '.join(socials.link for socials in self.socials.all()[:3])
 
     display_socials.short_description = 'Socials'
+
+class Accolade(models.Model):
+
+    title = models.CharField(max_length=200, help_text='Enter a title')
+
+    description = models.TextField(max_length=1000, help_text='Enter a brief description')
+
+    link = models.URLField(max_length=128, db_index=True, unique=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    def __str__(self):
+        return self.link
